@@ -16,7 +16,7 @@ import {
   WalletCards
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { getCurrentProfile, roleLabels } from "@/lib/authz";
+import { getCurrentProfile, roleLabels, type Role } from "@/lib/authz";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -36,6 +36,7 @@ const navigation = [
 
 export async function AppShell({ children }: { children: ReactNode }) {
   const { profile } = await getCurrentProfile();
+  const profileRole = profile.role as Role;
 
   return (
     <div className="min-h-screen bg-slate-100 lg:flex">
@@ -74,7 +75,7 @@ export async function AppShell({ children }: { children: ReactNode }) {
         <div className="hidden border-t border-white/10 p-5 lg:absolute lg:bottom-0 lg:block lg:w-full">
           <div className="rounded-lg bg-white/10 p-4">
             <p className="text-sm font-bold">{profile.full_name}</p>
-            <p className="mt-1 text-xs text-slate-300">{roleLabels[profile.role]} access</p>
+            <p className="mt-1 text-xs text-slate-300">{roleLabels[profileRole] || "Owner"} access</p>
           </div>
         </div>
       </aside>

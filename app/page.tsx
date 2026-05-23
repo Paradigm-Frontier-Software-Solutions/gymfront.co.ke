@@ -1,7 +1,7 @@
 import { Activity, AlertTriangle, Banknote, CalendarCheck, CreditCard, TrendingUp, UsersRound, WalletCards } from "lucide-react";
 import { AppShell, MetricCard, PageHeader } from "@/components/dashboard/app-shell";
 import { DataTable, StatusPill } from "@/components/dashboard/data-table";
-import { attendance, dashboardStats, members, money, payments, shortDate, trainers } from "@/lib/erp-data";
+import { attendance, dashboardStats, money, payments, shortDate, trainers } from "@/lib/erp-data";
 
 export default function DashboardPage() {
   const stats = dashboardStats();
